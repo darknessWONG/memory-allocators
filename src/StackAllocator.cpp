@@ -38,7 +38,7 @@ void* StackAllocator::Allocate(const std::size_t size, const std::size_t alignme
     const std::size_t headerAddress = nextAddress - sizeof (AllocationHeader);
     AllocationHeader allocationHeader{padding};
     AllocationHeader * headerPtr = (AllocationHeader*) headerAddress;
-    headerPtr = &allocationHeader;
+    *headerPtr = allocationHeader;
     
     m_offset += size;
 
